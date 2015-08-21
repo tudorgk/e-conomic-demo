@@ -7,16 +7,26 @@
 //
 
 #import "AppDelegate.h"
+#import <MagicalRecord/MagicalRecord.h>
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 @interface AppDelegate ()
 
 @end
+
+
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Override point for customization after application launch.
+	
+	//initialize stuff!
+	[self configureLogger];
+	
+	[self setUpMagicalRecord];
+	
 	return YES;
 }
 
@@ -40,6 +50,37 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+
+	//This tidies up after MagicalRecord
+	[MagicalRecord cleanUp];
+}
+
+#pragma mark - Setup Magical Record
+
+-(void) setUpMagicalRecord{
+	
+	[MagicalRecord setupCoreDataStackWithStoreNamed:@"e-conomic-model"];
+	
+}
+
+#pragma mark - Configure logger
+
+-(void) configureLogger{
+	// Enable XcodeColors
+	setenv("XcodeColors", "YES", 0);
+	
+	// Standard lumberjack initialization
+	[DDLog addLogger:[DDTTYLogger sharedInstance]];
+	
+	// And then enable colors
+	[[DDTTYLogger sharedInstance] setColorsEnabled:YES];
+	
+	[[DDTTYLogger sharedInstance] setForegroundColor:[UIColor blueColor] backgroundColor:nil forFlag:DDLogFlagInfo];
+	[[DDTTYLogger sharedInstance] setForegroundColor:[UIColor orangeColor] backgroundColor:nil forFlag:DDLogFlagDebug];
+	[[DDTTYLogger sharedInstance] setForegroundColor:[UIColor greenColor] backgroundColor:nil forFlag:DDLogFlagVerbose];
+
+	DDLogInfo(@"logger initialized!");
+	
 }
 
 @end

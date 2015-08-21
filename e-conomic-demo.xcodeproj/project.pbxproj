@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		05C351D01B872A8A0050EC93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C351CF1B872A8A0050EC93 /* main.m */; };
 		05C351D31B872A8A0050EC93 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C351D21B872A8A0050EC93 /* AppDelegate.m */; };
-		05C351D61B872A8A0050EC93 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C351D51B872A8A0050EC93 /* FirstViewController.m */; };
-		05C351D91B872A8A0050EC93 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C351D81B872A8A0050EC93 /* SecondViewController.m */; };
+		05C351D61B872A8A0050EC93 /* TDProjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C351D51B872A8A0050EC93 /* TDProjectListViewController.m */; };
+		05C351D91B872A8A0050EC93 /* TDProjectsOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C351D81B872A8A0050EC93 /* TDProjectsOverviewViewController.m */; };
 		05C351DC1B872A8A0050EC93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05C351DA1B872A8A0050EC93 /* Main.storyboard */; };
 		05C351DE1B872A8A0050EC93 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05C351DD1B872A8A0050EC93 /* Images.xcassets */; };
 		05C351E11B872A8A0050EC93 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C351DF1B872A8A0050EC93 /* LaunchScreen.xib */; };
 		05C351ED1B872A8A0050EC93 /* e_conomic_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C351EC1B872A8A0050EC93 /* e_conomic_demoTests.m */; };
+		05C351FD1B8733150050EC93 /* e-conomic-model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05C351FB1B8733150050EC93 /* e-conomic-model.xcdatamodeld */; };
+		05C352051B87366B0050EC93 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C352031B87366B0050EC93 /* Constants.m */; };
 		7C1F34DED321FADAAC5B5972 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 548FE8108CD480B42A766BC4 /* libPods.a */; };
 		838E1BCD5986130F53BEBCB5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 548FE8108CD480B42A766BC4 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -35,16 +37,20 @@
 		05C351CF1B872A8A0050EC93 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05C351D11B872A8A0050EC93 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		05C351D21B872A8A0050EC93 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		05C351D41B872A8A0050EC93 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		05C351D51B872A8A0050EC93 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		05C351D71B872A8A0050EC93 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		05C351D81B872A8A0050EC93 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		05C351D41B872A8A0050EC93 /* TDProjectListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDProjectListViewController.h; sourceTree = "<group>"; };
+		05C351D51B872A8A0050EC93 /* TDProjectListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDProjectListViewController.m; sourceTree = "<group>"; };
+		05C351D71B872A8A0050EC93 /* TDProjectsOverviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDProjectsOverviewViewController.h; sourceTree = "<group>"; };
+		05C351D81B872A8A0050EC93 /* TDProjectsOverviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDProjectsOverviewViewController.m; sourceTree = "<group>"; };
 		05C351DB1B872A8A0050EC93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05C351DD1B872A8A0050EC93 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		05C351E01B872A8A0050EC93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		05C351E61B872A8A0050EC93 /* e-conomic-demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "e-conomic-demoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C351EB1B872A8A0050EC93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05C351EC1B872A8A0050EC93 /* e_conomic_demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = e_conomic_demoTests.m; sourceTree = "<group>"; };
+		05C351FC1B8733150050EC93 /* e-conomic-model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "e-conomic-model.xcdatamodel"; sourceTree = "<group>"; };
+		05C351FE1B87337E0050EC93 /* e-conomic-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "e-conomic-PrefixHeader.pch"; sourceTree = "<group>"; };
+		05C352031B87366B0050EC93 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		05C352041B87366B0050EC93 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		1D49A09B80E84C22FFE8FF62 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		548FE8108CD480B42A766BC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0DADDD27101DE8BA230052 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,13 +99,12 @@
 		05C351CC1B872A8A0050EC93 /* e-conomic-demo */ = {
 			isa = PBXGroup;
 			children = (
+				05C351FF1B8735570050EC93 /* Utils */,
+				05C351FA1B8732DF0050EC93 /* Core Data */,
 				05C351D11B872A8A0050EC93 /* AppDelegate.h */,
 				05C351D21B872A8A0050EC93 /* AppDelegate.m */,
-				05C351D41B872A8A0050EC93 /* FirstViewController.h */,
-				05C351D51B872A8A0050EC93 /* FirstViewController.m */,
-				05C351D71B872A8A0050EC93 /* SecondViewController.h */,
-				05C351D81B872A8A0050EC93 /* SecondViewController.m */,
-				05C351DA1B872A8A0050EC93 /* Main.storyboard */,
+				05C351F81B872F610050EC93 /* View Controllers */,
+				05C351F91B872F6F0050EC93 /* Storyboards */,
 				05C351DD1B872A8A0050EC93 /* Images.xcassets */,
 				05C351DF1B872A8A0050EC93 /* LaunchScreen.xib */,
 				05C351CD1B872A8A0050EC93 /* Supporting Files */,
@@ -112,6 +117,7 @@
 			children = (
 				05C351CE1B872A8A0050EC93 /* Info.plist */,
 				05C351CF1B872A8A0050EC93 /* main.m */,
+				05C351FE1B87337E0050EC93 /* e-conomic-PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -131,6 +137,58 @@
 				05C351EB1B872A8A0050EC93 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05C351F61B872F490050EC93 /* Project List */ = {
+			isa = PBXGroup;
+			children = (
+				05C351D41B872A8A0050EC93 /* TDProjectListViewController.h */,
+				05C351D51B872A8A0050EC93 /* TDProjectListViewController.m */,
+			);
+			name = "Project List";
+			sourceTree = "<group>";
+		};
+		05C351F71B872F560050EC93 /* Projects Overview */ = {
+			isa = PBXGroup;
+			children = (
+				05C351D71B872A8A0050EC93 /* TDProjectsOverviewViewController.h */,
+				05C351D81B872A8A0050EC93 /* TDProjectsOverviewViewController.m */,
+			);
+			name = "Projects Overview";
+			sourceTree = "<group>";
+		};
+		05C351F81B872F610050EC93 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				05C351F61B872F490050EC93 /* Project List */,
+				05C351F71B872F560050EC93 /* Projects Overview */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		05C351F91B872F6F0050EC93 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				05C351DA1B872A8A0050EC93 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		05C351FA1B8732DF0050EC93 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				05C351FB1B8733150050EC93 /* e-conomic-model.xcdatamodeld */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		05C351FF1B8735570050EC93 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				05C352031B87366B0050EC93 /* Constants.m */,
+				05C352041B87366B0050EC93 /* Constants.h */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		86B9ECF029E25F0C7AEAB841 /* Frameworks */ = {
@@ -317,10 +375,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05C351D91B872A8A0050EC93 /* SecondViewController.m in Sources */,
+				05C351D91B872A8A0050EC93 /* TDProjectsOverviewViewController.m in Sources */,
 				05C351D31B872A8A0050EC93 /* AppDelegate.m in Sources */,
-				05C351D61B872A8A0050EC93 /* FirstViewController.m in Sources */,
+				05C351D61B872A8A0050EC93 /* TDProjectListViewController.m in Sources */,
 				05C351D01B872A8A0050EC93 /* main.m in Sources */,
+				05C351FD1B8733150050EC93 /* e-conomic-model.xcdatamodeld in Sources */,
+				05C352051B87366B0050EC93 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +507,8 @@
 			baseConfigurationReference = 1D49A09B80E84C22FFE8FF62 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "/Users/tudorgk/Documents/ios-projects/e-conomic-demo/e-conomic-demo/e-conomic-PrefixHeader.pch";
 				INFOPLIST_FILE = "e-conomic-demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -458,6 +520,8 @@
 			baseConfigurationReference = CE0DADDD27101DE8BA230052 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "/Users/tudorgk/Documents/ios-projects/e-conomic-demo/e-conomic-demo/e-conomic-PrefixHeader.pch";
 				INFOPLIST_FILE = "e-conomic-demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -531,6 +595,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		05C351FB1B8733150050EC93 /* e-conomic-model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				05C351FC1B8733150050EC93 /* e-conomic-model.xcdatamodel */,
+			);
+			currentVersion = 05C351FC1B8733150050EC93 /* e-conomic-model.xcdatamodel */;
+			path = "e-conomic-model.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 05C351C21B872A8A0050EC93 /* Project object */;
 }

@@ -6,13 +6,17 @@
 //  Copyright (c) 2015 tudordev.com. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "TDProjectListViewController.h"
 
-@interface FirstViewController ()
+@interface TDProjectListViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation TDProjectListViewController
+
+-(void) awakeFromNib{
+	[super awakeFromNib]
+}
 
 - (void)viewDidLoad {
 	[super viewDidLoad];

@@ -6,13 +6,17 @@
 //  Copyright (c) 2015 tudordev.com. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "TDProjectsOverviewViewController.h"
 
-@interface SecondViewController ()
+@interface TDProjectsOverviewViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation TDProjectsOverviewViewController
+
+-(void) awakeFromNib{
+	[super awakeFromNib];
+}
 
 - (void)viewDidLoad {
 	[super viewDidLoad];

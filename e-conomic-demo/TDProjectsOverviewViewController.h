@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  SecondViewController.h
 //  e-conomic-demo
 //
 //  Created by Tudor Dragan on 21/8/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface TDProjectsOverviewViewController : UIViewController
 
 
 @end
