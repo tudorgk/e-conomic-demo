@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TDNewProjectModalViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *textfieldProjectName;
+@property (weak, nonatomic) IBOutlet UILabel *labelWarning;
 
 @end

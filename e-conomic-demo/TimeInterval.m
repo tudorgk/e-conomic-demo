@@ -13,6 +13,7 @@
 
 @dynamic startDate;
 @dynamic endDate;
+@dynamic title;
 @dynamic project;
 
 @end

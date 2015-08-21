@@ -16,5 +16,5 @@
 @property (nonatomic, retain) NSDate * startDate;
 @property (nonatomic, retain) NSDate * endDate;
 @property (nonatomic, retain) NSManagedObject *project;
-
+@property (nonatomic, retain) NSString * title;
 @end

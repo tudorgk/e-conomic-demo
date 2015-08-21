@@ -7,7 +7,8 @@
 //
 
 #import "TDNewProjectModalViewController.h"
-
+#import "TDCoreDataManager.h"
+#import "NSString+StringValidation.h"
 @interface TDNewProjectModalViewController ()
 
 @end
@@ -34,10 +35,21 @@
 }
 */
 - (IBAction)saveButtonTapped:(id)sender {
+	
+	if ([self.textfieldProjectName.text validateAlphanumericSpace] && [self.textfieldProjectName.text validateNotEmpty]) {
+		
+		//TODO: Quick testing
+		[[TDCoreDataManager sharedInstance] addNewProjectToDatabaseWithName:self.textfieldProjectName.text andDetails:[[NSDate date] description]];
+		[self dismissViewControllerAnimated:YES completion:nil];
+	}else{
+		self.labelWarning.hidden = NO;
+	}
+
 }
 
 
 - (IBAction)cancelButtonTapped:(id)sender {
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

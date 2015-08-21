@@ -8,13 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "Project.h"
+#import "TimeInterval.h"
 
 @interface TDCoreDataManager : NSObject
 
 +(TDCoreDataManager*) sharedInstance;
 
--(Project*) addNewProjectToDatabaseWithName:(NSString*) projectName andDetails:(NSString*) details;
+-(void) addNewProjectToDatabaseWithName:(NSString*) projectName andDetails:(NSString*) details;
 -(void) removeProjectFromDatabase:(Project*) projectEntity;
 
+-(void) addTimeIntervalToProject:(Project*) project
+								 withTitle:(NSString*) title
+								startDate:(NSDate*) startDate
+							   andEndDate:(NSDate*) endDate;
+-(void) removeTimeInterval:(TimeInterval*) timeInterval;
 
 @end

@@ -7,16 +7,25 @@
 //
 
 #import "TDProjectListViewController.h"
-
+#import "Project.h"
+#import <MagicalRecord/MagicalRecord.h>
 @interface TDProjectListViewController ()
+
+@property (nonatomic,strong) NSArray* projectArray;
+
 -(void) configureView;
 -(void) configureTableView;
+
+-(void) loadTableViewData;
+
 @end
+
 
 @implementation TDProjectListViewController
 
 -(void) awakeFromNib{
 	[super awakeFromNib];
+
 }
 
 - (void)viewDidLoad {
@@ -24,6 +33,8 @@
 	
 	[self configureView];
 	[self configureTableView];
+	
+	[self loadTableViewData];
 }
 
 #pragma mark - Memory management
@@ -32,9 +43,15 @@
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
 }
+
+-(void) dealloc{
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:TDDatabaseDidChangeNotification object:nil];
+}
 #pragma mark - Configure methods
 
 -(void) configureView{
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(databaseDidChange) name:TDDatabaseDidChangeNotification object:nil];
 	
 }
 
@@ -50,7 +67,8 @@
 #pragma mark - UITableViewDelegate methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
+	UITableViewCell * selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+	[selectedCell setSelected:NO animated:YES];
 }
 
 #pragma mark - UITableViewDataSource methods
@@ -60,8 +78,10 @@
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"defaultCell"];
 	
-	cell.textLabel.text = @"Testing";
-	cell.detailTextLabel.text = @"DetailLabel";
+	Project * project = [self.projectArray objectAtIndex:indexPath.row];
+	
+	cell.textLabel.text = project.name;
+	cell.detailTextLabel.text = project.details;
 	
 	return cell;
 }
@@ -72,8 +92,18 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-	return 20;
+	return self.projectArray.count;
 }
+
+-(void) loadTableViewData{
+	self.projectArray = [Project MR_findAll];
+}
+
+-(void) databaseDidChange{
+	[self loadTableViewData];
+	[self.tableView reloadData];
+}
+
 
 #pragma mark - Action methods
 - (IBAction)addButtonTapped:(id)sender {

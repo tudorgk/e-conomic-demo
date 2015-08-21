@@ -63,7 +63,7 @@
 
 -(void) setUpMagicalRecord{
 	
-	[MagicalRecord setupCoreDataStackWithStoreNamed:@"e-conomic-model"];
+	[MagicalRecord setupCoreDataStackWithStoreNamed:@"e-conomic-model.xcdata"];
 	
 }
 

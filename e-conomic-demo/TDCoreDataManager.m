@@ -29,7 +29,7 @@ static TDCoreDataManager *sharedInstance = nil;
 	return sharedInstance;
 }
 
--(Project *) addNewProjectToDatabaseWithName:(NSString *)projectName andDetails:(NSString *)details{
+-(void) addNewProjectToDatabaseWithName:(NSString *)projectName andDetails:(NSString *)details{
 
 	//for letting the application create the project even when
 	//it's shoved in the background ^^
@@ -42,7 +42,8 @@ static TDCoreDataManager *sharedInstance = nil;
 
 	
 	//first validate the strings
-	if ([projectName validateAlphanumericSpace] && [details validateAlphanumericSpace]) {
+	if ([projectName validateAlphanumericSpace] &&
+		[projectName validateNotEmpty] && [details validateNotEmpty]) {
 		//if both strings are valid, proceed
 		
 		//for letting the application create the project even when
@@ -62,7 +63,6 @@ static TDCoreDataManager *sharedInstance = nil;
 			newProject.name = projectName;
 			newProject.details = details;
 			
-			// add it if not with response value of 0
 		}completion:^(BOOL success, NSError *error) {
 			if (success) {
 				DDLogInfo(@"Project saved successful!");
@@ -78,14 +78,122 @@ static TDCoreDataManager *sharedInstance = nil;
 			bgTask = UIBackgroundTaskInvalid;
 		}];
 	}
-	
-	return nil;
-	
-	
-	
+
 }
 
 -(void) removeProjectFromDatabase:(Project *)projectEntity{
+	//for letting the application remove the project even when
+	//it's shoved in the background ^^
+	UIApplication *application = [UIApplication sharedApplication];
+	
+	__block UIBackgroundTaskIdentifier bgTask = [application beginBackgroundTaskWithExpirationHandler:^{
+		[application endBackgroundTask:bgTask];
+		bgTask = UIBackgroundTaskInvalid;
+	}];
+	
+	[MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+		// this will occur on a background thread
+		
+		[projectEntity MR_deleteEntity];
+		
+		}completion:^(BOOL success, NSError *error) {
+		if (success) {
+			DDLogInfo(@"Project deleted successful!");
+			
+			//post notification of database change
+			[[NSNotificationCenter defaultCenter] postNotificationName:TDDatabaseDidChangeNotification object:self];
+			
+		}else{
+			DDLogError(@"Project did not delete with error = %@", [error description]);
+		}
+		
+		[application endBackgroundTask:bgTask];
+		bgTask = UIBackgroundTaskInvalid;
+	}];
+
+}
+
+-(void) addTimeIntervalToProject:(Project *)project withTitle:(NSString *)title startDate:(NSDate *)startDate andEndDate:(NSDate *)endDate{
+	//for letting the application create the project even when
+	//it's shoved in the background ^^
+	UIApplication *application = [UIApplication sharedApplication];
+	
+	__block UIBackgroundTaskIdentifier bgTask = [application beginBackgroundTaskWithExpirationHandler:^{
+		[application endBackgroundTask:bgTask];
+		bgTask = UIBackgroundTaskInvalid;
+	}];
+	
+	
+	//first validate the strings
+	if ([title validateAlphanumericSpace] && [title validateNotEmpty]) {
+		//if both strings are valid, proceed
+		
+		//for letting the application create the time interval even when
+		//it's shoved in the background ^^
+		UIApplication *application = [UIApplication sharedApplication];
+		
+		__block UIBackgroundTaskIdentifier bgTask = [application beginBackgroundTaskWithExpirationHandler:^{
+			[application endBackgroundTask:bgTask];
+			bgTask = UIBackgroundTaskInvalid;
+		}];
+		
+		[MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+			// this will occur on a background thread
+			
+			//create the new project entity
+			TimeInterval* newTimeInterval = [TimeInterval MR_createEntityInContext:localContext];
+			newTimeInterval.startDate = startDate;
+			newTimeInterval.endDate = endDate;
+			newTimeInterval.title=title;
+			newTimeInterval.project = project;
+			
+		}completion:^(BOOL success, NSError *error) {
+			if (success) {
+				DDLogInfo(@"Time interval saved successful!");
+				
+				//post notification of database change
+				[[NSNotificationCenter defaultCenter] postNotificationName:TDDatabaseDidChangeNotification object:self];
+				
+			}else{
+				DDLogError(@"Time interval did not save with error = %@", [error description]);
+			}
+			
+			[application endBackgroundTask:bgTask];
+			bgTask = UIBackgroundTaskInvalid;
+		}];
+	}
+	
+}
+
+-(void) removeTimeInterval:(TimeInterval *)timeInterval{
+	//for letting the application remove the time interval even when
+	//it's shoved in the background ^^
+	UIApplication *application = [UIApplication sharedApplication];
+	
+	__block UIBackgroundTaskIdentifier bgTask = [application beginBackgroundTaskWithExpirationHandler:^{
+		[application endBackgroundTask:bgTask];
+		bgTask = UIBackgroundTaskInvalid;
+	}];
+	
+	[MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+		// this will occur on a background thread
+		
+		[timeInterval MR_deleteEntity];
+		
+	}completion:^(BOOL success, NSError *error) {
+		if (success) {
+			DDLogInfo(@"Time interval deleted successful!");
+			
+			//post notification of database change
+			[[NSNotificationCenter defaultCenter] postNotificationName:TDDatabaseDidChangeNotification object:self];
+			
+		}else{
+			DDLogError(@"Time interval did not delete with error = %@", [error description]);
+		}
+		
+		[application endBackgroundTask:bgTask];
+		bgTask = UIBackgroundTaskInvalid;
+	}];
 
 }
 
