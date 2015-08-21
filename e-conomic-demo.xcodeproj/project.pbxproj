@@ -17,6 +17,12 @@
 		05C351ED1B872A8A0050EC93 /* e_conomic_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C351EC1B872A8A0050EC93 /* e_conomic_demoTests.m */; };
 		05C351FD1B8733150050EC93 /* e-conomic-model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05C351FB1B8733150050EC93 /* e-conomic-model.xcdatamodeld */; };
 		05C352051B87366B0050EC93 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C352031B87366B0050EC93 /* Constants.m */; };
+		05C3523E1B8741A60050EC93 /* TDProjectGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C3523D1B8741A60050EC93 /* TDProjectGenerator.m */; };
+		05C352431B87489B0050EC93 /* TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C352421B87489B0050EC93 /* TimeInterval.m */; };
+		05C352461B87489C0050EC93 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C352451B87489C0050EC93 /* Project.m */; };
+		05C352851B875C540050EC93 /* TDNewProjectModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C352841B875C540050EC93 /* TDNewProjectModalViewController.m */; };
+		05C352881B8763960050EC93 /* TDCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C352871B8763960050EC93 /* TDCoreDataManager.m */; };
+		05C3528C1B8768B10050EC93 /* NSString+StringValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C3528B1B8768B10050EC93 /* NSString+StringValidation.m */; };
 		7C1F34DED321FADAAC5B5972 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 548FE8108CD480B42A766BC4 /* libPods.a */; };
 		838E1BCD5986130F53BEBCB5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 548FE8108CD480B42A766BC4 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -51,6 +57,18 @@
 		05C351FE1B87337E0050EC93 /* e-conomic-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "e-conomic-PrefixHeader.pch"; sourceTree = "<group>"; };
 		05C352031B87366B0050EC93 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		05C352041B87366B0050EC93 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		05C3523C1B8741A60050EC93 /* TDProjectGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDProjectGenerator.h; sourceTree = "<group>"; };
+		05C3523D1B8741A60050EC93 /* TDProjectGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDProjectGenerator.m; sourceTree = "<group>"; };
+		05C352411B87489B0050EC93 /* TimeInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeInterval.h; sourceTree = "<group>"; };
+		05C352421B87489B0050EC93 /* TimeInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeInterval.m; sourceTree = "<group>"; };
+		05C352441B87489C0050EC93 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		05C352451B87489C0050EC93 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
+		05C352831B875C540050EC93 /* TDNewProjectModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDNewProjectModalViewController.h; sourceTree = "<group>"; };
+		05C352841B875C540050EC93 /* TDNewProjectModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDNewProjectModalViewController.m; sourceTree = "<group>"; };
+		05C352861B8763960050EC93 /* TDCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCoreDataManager.h; sourceTree = "<group>"; };
+		05C352871B8763960050EC93 /* TDCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCoreDataManager.m; sourceTree = "<group>"; };
+		05C3528A1B8768B10050EC93 /* NSString+StringValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringValidation.h"; sourceTree = "<group>"; };
+		05C3528B1B8768B10050EC93 /* NSString+StringValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringValidation.m"; sourceTree = "<group>"; };
 		1D49A09B80E84C22FFE8FF62 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		548FE8108CD480B42A766BC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0DADDD27101DE8BA230052 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +117,7 @@
 		05C351CC1B872A8A0050EC93 /* e-conomic-demo */ = {
 			isa = PBXGroup;
 			children = (
+				05C352481B87597A0050EC93 /* Manangers */,
 				05C351FF1B8735570050EC93 /* Utils */,
 				05C351FA1B8732DF0050EC93 /* Core Data */,
 				05C351D11B872A8A0050EC93 /* AppDelegate.h */,
@@ -142,6 +161,7 @@
 		05C351F61B872F490050EC93 /* Project List */ = {
 			isa = PBXGroup;
 			children = (
+				05C352821B875C370050EC93 /* New Project Modal */,
 				05C351D41B872A8A0050EC93 /* TDProjectListViewController.h */,
 				05C351D51B872A8A0050EC93 /* TDProjectListViewController.m */,
 			);
@@ -178,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				05C351FB1B8733150050EC93 /* e-conomic-model.xcdatamodeld */,
+				05C352471B8748AB0050EC93 /* Models */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -185,10 +206,59 @@
 		05C351FF1B8735570050EC93 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				05C352891B8768790050EC93 /* Validation Category */,
+				05C3523B1B8741900050EC93 /* Project Generator */,
 				05C352031B87366B0050EC93 /* Constants.m */,
 				05C352041B87366B0050EC93 /* Constants.h */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		05C3523B1B8741900050EC93 /* Project Generator */ = {
+			isa = PBXGroup;
+			children = (
+				05C3523C1B8741A60050EC93 /* TDProjectGenerator.h */,
+				05C3523D1B8741A60050EC93 /* TDProjectGenerator.m */,
+			);
+			name = "Project Generator";
+			sourceTree = "<group>";
+		};
+		05C352471B8748AB0050EC93 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				05C352441B87489C0050EC93 /* Project.h */,
+				05C352451B87489C0050EC93 /* Project.m */,
+				05C352411B87489B0050EC93 /* TimeInterval.h */,
+				05C352421B87489B0050EC93 /* TimeInterval.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		05C352481B87597A0050EC93 /* Manangers */ = {
+			isa = PBXGroup;
+			children = (
+				05C352861B8763960050EC93 /* TDCoreDataManager.h */,
+				05C352871B8763960050EC93 /* TDCoreDataManager.m */,
+			);
+			name = Manangers;
+			sourceTree = "<group>";
+		};
+		05C352821B875C370050EC93 /* New Project Modal */ = {
+			isa = PBXGroup;
+			children = (
+				05C352831B875C540050EC93 /* TDNewProjectModalViewController.h */,
+				05C352841B875C540050EC93 /* TDNewProjectModalViewController.m */,
+			);
+			name = "New Project Modal";
+			sourceTree = "<group>";
+		};
+		05C352891B8768790050EC93 /* Validation Category */ = {
+			isa = PBXGroup;
+			children = (
+				05C3528A1B8768B10050EC93 /* NSString+StringValidation.h */,
+				05C3528B1B8768B10050EC93 /* NSString+StringValidation.m */,
+			);
+			name = "Validation Category";
 			sourceTree = "<group>";
 		};
 		86B9ECF029E25F0C7AEAB841 /* Frameworks */ = {
@@ -378,9 +448,15 @@
 				05C351D91B872A8A0050EC93 /* TDProjectsOverviewViewController.m in Sources */,
 				05C351D31B872A8A0050EC93 /* AppDelegate.m in Sources */,
 				05C351D61B872A8A0050EC93 /* TDProjectListViewController.m in Sources */,
+				05C352851B875C540050EC93 /* TDNewProjectModalViewController.m in Sources */,
+				05C352461B87489C0050EC93 /* Project.m in Sources */,
+				05C3523E1B8741A60050EC93 /* TDProjectGenerator.m in Sources */,
+				05C352881B8763960050EC93 /* TDCoreDataManager.m in Sources */,
 				05C351D01B872A8A0050EC93 /* main.m in Sources */,
+				05C352431B87489B0050EC93 /* TimeInterval.m in Sources */,
 				05C351FD1B8733150050EC93 /* e-conomic-model.xcdatamodeld in Sources */,
 				05C352051B87366B0050EC93 /* Constants.m in Sources */,
+				05C3528C1B8768B10050EC93 /* NSString+StringValidation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

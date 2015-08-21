@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import <MagicalRecord/MagicalRecord.h>
 #import <CocoaLumberjack/CocoaLumberjack.h>
-
+#import <IQKeyboardManager/IQKeyboardManager.h>
 @interface AppDelegate ()
 
 @end
@@ -26,6 +26,10 @@
 	[self configureLogger];
 	
 	[self setUpMagicalRecord];
+	
+	[self setUpKeyboardManager];
+	
+	[self setAppearenceProxies];
 	
 	return YES;
 }
@@ -81,6 +85,27 @@
 
 	DDLogInfo(@"logger initialized!");
 	
+}
+
+#pragma mark - set up visuals
+
+-(void) setUpKeyboardManager{
+	[[IQKeyboardManager sharedManager ] setEnable:YES ];
+	[[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
+	[[IQKeyboardManager sharedManager] setKeyboardDistanceFromTextField:60];
+}
+
+-(void) setAppearenceProxies{
+	NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+								[UIColor whiteColor], NSForegroundColorAttributeName,
+								[UIFont fontWithName:@"Avenir-Heavy" size:17], NSFontAttributeName, nil];
+	
+	
+	[[UINavigationBar appearanceWhenContainedIn:[UINavigationController class], nil] setBarTintColor:[UIColor colorWithRed:101.0f/255.0f green:79.0f/255.0f blue:155.0f/255.0f alpha:1]];
+	[[UIBarButtonItem appearanceWhenContainedIn:[UINavigationController class], nil] setTintColor:[UIColor whiteColor]];
+	[[UINavigationBar appearanceWhenContainedIn:[UINavigationController class], nil] setTitleTextAttributes:attributes];
+	[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+
 }
 
 @end

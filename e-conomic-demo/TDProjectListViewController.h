@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TDProjectListViewController : UIViewController
+@interface TDProjectListViewController : UITableViewController <UITableViewDelegate,UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButtonItemAdd;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButtonItemEdit;
 
 @end
 
