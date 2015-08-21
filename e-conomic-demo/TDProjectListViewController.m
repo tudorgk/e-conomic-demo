@@ -15,7 +15,7 @@
 @implementation TDProjectListViewController
 
 -(void) awakeFromNib{
-	[super awakeFromNib]
+	[super awakeFromNib];
 }
 
 - (void)viewDidLoad {
