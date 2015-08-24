@@ -7,8 +7,6 @@
 //
 
 #import "TDNewIntervalTableViewController.h"
-#import "TDTaskNameTableViewCell.h"
-#import "TDDateSelectTableViewCell.h"
 @interface TDNewIntervalTableViewController ()
 
 -(void) configureView;
@@ -47,56 +45,24 @@
 	
 }
 
-#pragma mark - Table view data source
+#pragma mark - UITableView Delegate methods
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	// Return the number of sections.
-	return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	// Return the number of rows in the section.
-	return 3;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	switch (indexPath.row) {
-		case 0:
-			{
-				TDTaskNameTableViewCell * taskNameCell = (TDTaskNameTableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"taskNameCell"];
-				
-				taskNameCell.textFieldTaskName.delegate = self;
-				
-				return taskNameCell;
-			}
-			break;
 		case 1:
-			{
-				TDDateSelectTableViewCell * startDateCell = (TDDateSelectTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"dateSelectCell"];
-				
-				startDateCell.labelCellTitle.text = @"Start Time";
-				
-				return startDateCell;
-			}
+		{
+		}
 			break;
 		case 2:
 		{
-			TDDateSelectTableViewCell * endDateCell = (TDDateSelectTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"dateSelectCell"];
-			
-			endDateCell.labelCellTitle.text = @"End Time";
-			
-			return endDateCell;
 		}
 			break;
-
-		default:
-			//default behaviour
-			return [UITableViewCell new];
+			
+  default:
 			break;
 	}
-
 }
+
 
 /*
  // Override to support conditional editing of the table view.

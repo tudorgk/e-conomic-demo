@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Project.h"
+typedef enum{
+	TDTimeIntervalAssertionValid,
+	TDTimeIntervalAssertionInvalid
+} TDTimeIntervalAssertion;
 
 @interface TDTimeIntervalValidator : NSObject
+
++(TDTimeIntervalAssertion) validateTimeIntervalWithStartDate:(NSDate*) startDate
+													 endDate:(NSDate*) endDate
+												  forProject:(Project*) project;
 
 @end

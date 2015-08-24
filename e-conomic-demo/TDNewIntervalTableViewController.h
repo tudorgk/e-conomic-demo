@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TDNewIntervalTableViewController : UITableViewController<UITextFieldDelegate>
+@interface TDNewIntervalTableViewController : UITableViewController<UITextFieldDelegate,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *textFieldTaskName;
+@property (weak, nonatomic) IBOutlet UILabel *labelStartDate;
+@property (weak, nonatomic) IBOutlet UILabel *labelEndDate;
 
 @end

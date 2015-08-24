@@ -11,9 +11,8 @@
 		05157C681B8AFF8700A6714F /* TDIntervalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05157C671B8AFF8700A6714F /* TDIntervalTableViewCell.m */; };
 		05157C6C1B8B0EC200A6714F /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 05157C6B1B8B0EC200A6714F /* Project.m */; };
 		05157C6F1B8B0FEB00A6714F /* TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 05157C6E1B8B0FEB00A6714F /* TimeInterval.m */; };
-		05157C721B8B156000A6714F /* TDDateSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05157C711B8B156000A6714F /* TDDateSelectTableViewCell.m */; };
-		05157C761B8B158200A6714F /* TDTaskNameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05157C751B8B158200A6714F /* TDTaskNameTableViewCell.m */; };
 		05157C7B1B8B233000A6714F /* TDTimeIntervalValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 05157C7A1B8B233000A6714F /* TDTimeIntervalValidator.m */; };
+		05157C7E1B8B25BD00A6714F /* NSDate+CompareDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 05157C7D1B8B25BD00A6714F /* NSDate+CompareDates.m */; };
 		052695881B8A6D9200257B10 /* TDNewIntervalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 052695871B8A6D9200257B10 /* TDNewIntervalTableViewController.m */; };
 		05C351D01B872A8A0050EC93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C351CF1B872A8A0050EC93 /* main.m */; };
 		05C351D31B872A8A0050EC93 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C351D21B872A8A0050EC93 /* AppDelegate.m */; };
@@ -52,12 +51,10 @@
 		05157C6B1B8B0EC200A6714F /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
 		05157C6D1B8B0FEB00A6714F /* TimeInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeInterval.h; sourceTree = "<group>"; };
 		05157C6E1B8B0FEB00A6714F /* TimeInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeInterval.m; sourceTree = "<group>"; };
-		05157C701B8B156000A6714F /* TDDateSelectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDDateSelectTableViewCell.h; sourceTree = "<group>"; };
-		05157C711B8B156000A6714F /* TDDateSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDDateSelectTableViewCell.m; sourceTree = "<group>"; };
-		05157C741B8B158200A6714F /* TDTaskNameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTaskNameTableViewCell.h; sourceTree = "<group>"; };
-		05157C751B8B158200A6714F /* TDTaskNameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTaskNameTableViewCell.m; sourceTree = "<group>"; };
 		05157C791B8B233000A6714F /* TDTimeIntervalValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTimeIntervalValidator.h; sourceTree = "<group>"; };
 		05157C7A1B8B233000A6714F /* TDTimeIntervalValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTimeIntervalValidator.m; sourceTree = "<group>"; };
+		05157C7C1B8B25BD00A6714F /* NSDate+CompareDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CompareDates.h"; sourceTree = "<group>"; };
+		05157C7D1B8B25BD00A6714F /* NSDate+CompareDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CompareDates.m"; sourceTree = "<group>"; };
 		052695861B8A6D9200257B10 /* TDNewIntervalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDNewIntervalTableViewController.h; sourceTree = "<group>"; };
 		052695871B8A6D9200257B10 /* TDNewIntervalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDNewIntervalTableViewController.m; sourceTree = "<group>"; };
 		05C351CA1B872A8A0050EC93 /* e-conomic-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "e-conomic-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,24 +128,6 @@
 			name = "Interval Custom Cell";
 			sourceTree = "<group>";
 		};
-		05157C731B8B156500A6714F /* Date Select Cell */ = {
-			isa = PBXGroup;
-			children = (
-				05157C701B8B156000A6714F /* TDDateSelectTableViewCell.h */,
-				05157C711B8B156000A6714F /* TDDateSelectTableViewCell.m */,
-			);
-			name = "Date Select Cell";
-			sourceTree = "<group>";
-		};
-		05157C771B8B158500A6714F /* Task Name Cell */ = {
-			isa = PBXGroup;
-			children = (
-				05157C741B8B158200A6714F /* TDTaskNameTableViewCell.h */,
-				05157C751B8B158200A6714F /* TDTaskNameTableViewCell.m */,
-			);
-			name = "Task Name Cell";
-			sourceTree = "<group>";
-		};
 		05157C781B8B231500A6714F /* Time Interval Validator */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,11 +137,18 @@
 			name = "Time Interval Validator";
 			sourceTree = "<group>";
 		};
+		05157C7F1B8B25C400A6714F /* NSDate Compare Category */ = {
+			isa = PBXGroup;
+			children = (
+				05157C7C1B8B25BD00A6714F /* NSDate+CompareDates.h */,
+				05157C7D1B8B25BD00A6714F /* NSDate+CompareDates.m */,
+			);
+			name = "NSDate Compare Category";
+			sourceTree = "<group>";
+		};
 		052695891B8A6D9600257B10 /* New Interval View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				05157C771B8B158500A6714F /* Task Name Cell */,
-				05157C731B8B156500A6714F /* Date Select Cell */,
 				052695861B8A6D9200257B10 /* TDNewIntervalTableViewController.h */,
 				052695871B8A6D9200257B10 /* TDNewIntervalTableViewController.m */,
 			);
@@ -283,6 +269,7 @@
 		05C351FF1B8735570050EC93 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				05157C7F1B8B25C400A6714F /* NSDate Compare Category */,
 				05157C781B8B231500A6714F /* Time Interval Validator */,
 				05C352891B8768790050EC93 /* Validation Category */,
 				05C3523B1B8741900050EC93 /* Project Generator */,
@@ -523,13 +510,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05157C7E1B8B25BD00A6714F /* NSDate+CompareDates.m in Sources */,
 				05C351D91B872A8A0050EC93 /* TDProjectsOverviewViewController.m in Sources */,
 				05C351D31B872A8A0050EC93 /* AppDelegate.m in Sources */,
 				05C351D61B872A8A0050EC93 /* TDProjectListViewController.m in Sources */,
 				05157C6C1B8B0EC200A6714F /* Project.m in Sources */,
 				05C352851B875C540050EC93 /* TDNewProjectModalViewController.m in Sources */,
 				05157C651B8AFECF00A6714F /* TDProjectOverviewTableViewController.m in Sources */,
-				05157C761B8B158200A6714F /* TDTaskNameTableViewCell.m in Sources */,
 				052695881B8A6D9200257B10 /* TDNewIntervalTableViewController.m in Sources */,
 				05C3523E1B8741A60050EC93 /* TDProjectGenerator.m in Sources */,
 				05C352881B8763960050EC93 /* TDCoreDataManager.m in Sources */,
@@ -540,7 +527,6 @@
 				05C352051B87366B0050EC93 /* Constants.m in Sources */,
 				05C3528C1B8768B10050EC93 /* NSString+StringValidation.m in Sources */,
 				05157C7B1B8B233000A6714F /* TDTimeIntervalValidator.m in Sources */,
-				05157C721B8B156000A6714F /* TDDateSelectTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
