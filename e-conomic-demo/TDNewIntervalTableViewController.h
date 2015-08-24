@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TDNewIntervalTableViewController : UITableViewController
+@interface TDNewIntervalTableViewController : UITableViewController<UITextFieldDelegate>
 
 @end

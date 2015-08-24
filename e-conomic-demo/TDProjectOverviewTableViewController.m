@@ -11,6 +11,7 @@
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import <MagicalRecord/MagicalRecord.h>
 #import "TimeInterval.h"
+#import "TDNewIntervalTableViewController.h"
 @interface TDProjectOverviewTableViewController ()
 
 @property (nonatomic, strong) NSArray* intervalArray;
@@ -56,7 +57,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 10;
+	return [self.intervalArray count];
 }
 
 
@@ -73,7 +74,11 @@
 -(void) setCurrentProject:(Project *)currentProject{
 	_currentProject = currentProject;
 	
-	NSArray *intervalsSorted = [NSArray array]
+	self.intervalArray = [TimeInterval MR_findByAttribute:@"project" withValue:_currentProject andOrderBy:@"startDate" ascending:YES];
+	
+	NSLog(@"intervalsSorted array = %@", [self.intervalArray description]);
+	
+	[self.tableView reloadData];
 	
 }
 
@@ -81,6 +86,8 @@
 
 -(void) addButtonPressed:(id) sender{
 	DDLogInfo(@"Add button pressed!");
+	
+	[self performSegueWithIdentifier:@"showAddNewIntervalVC" sender:self.currentProject];
 }
 
 
@@ -118,7 +125,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -126,6 +133,18 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
+-(void) performSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+	if ([identifier isEqualToString:@"showAddNewIntervalVC"]) {
+
+		//instantiate NewIntervalVC
+		TDNewIntervalTableViewController * newIntervalVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"newIntervalTableVC"];
+		
+		//instantiate standard nav controller
+		UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController:newIntervalVC];
+		
+		[self presentViewController:navController animated:YES completion:^(){}];
+	}
+}
 
 @end

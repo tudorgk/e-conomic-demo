@@ -7,8 +7,12 @@
 //
 
 #import "TDNewIntervalTableViewController.h"
-
+#import "TDTaskNameTableViewCell.h"
+#import "TDDateSelectTableViewCell.h"
 @interface TDNewIntervalTableViewController ()
+
+-(void) configureView;
+-(void) configureTableView;
 
 @end
 
@@ -17,16 +21,30 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	// Uncomment the following line to preserve selection between presentations.
-	// self.clearsSelectionOnViewWillAppear = NO;
-	
-	// Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-	// self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	[self configureView];
+	[self configureTableView];
 }
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
+}
+
+-(void) configureView{
+	//set title
+	self.title = @"Add New Interval";
+	
+	//add cancel button
+	UIBarButtonItem * cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonPressed:)];
+	self.navigationItem.leftBarButtonItem = cancelButton;
+	
+	//add save button
+	UIBarButtonItem * saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonPressed:)];
+	self.navigationItem.rightBarButtonItem = saveButton;
+}
+
+-(void) configureTableView{
+	
 }
 
 #pragma mark - Table view data source
@@ -38,31 +56,47 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	// Return the number of rows in the section.
-	return 2;
+	return 3;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"defaultCell" forIndexPath:indexPath];
-	
 	switch (indexPath.row) {
 		case 0:
 			{
-				cell.textLabel.text = @"Start time";
+				TDTaskNameTableViewCell * taskNameCell = (TDTaskNameTableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"taskNameCell"];
+				
+				taskNameCell.textFieldTaskName.delegate = self;
+				
+				return taskNameCell;
 			}
 			break;
 		case 1:
 			{
-				cell.textLabel.text = @"End time";
+				TDDateSelectTableViewCell * startDateCell = (TDDateSelectTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"dateSelectCell"];
+				
+				startDateCell.labelCellTitle.text = @"Start Time";
+				
+				return startDateCell;
 			}
 			break;
+		case 2:
+		{
+			TDDateSelectTableViewCell * endDateCell = (TDDateSelectTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"dateSelectCell"];
+			
+			endDateCell.labelCellTitle.text = @"End Time";
+			
+			return endDateCell;
+		}
+			break;
+
 		default:
+			//default behaviour
+			return [UITableViewCell new];
 			break;
 	}
-	
-	return cell;
-}
 
+}
 
 /*
  // Override to support conditional editing of the table view.
@@ -98,14 +132,33 @@
  }
  */
 
-/*
+
  #pragma mark - Navigation
- 
+
+-(void) cancelButtonPressed:(id) sender{
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void) saveButtonPressed: (id) sender{
+	
+}
+
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
  }
- */
+
+#pragma mark - UITextField delegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+	
+}
+
+-(void) textFieldDidEndEditing:(UITextField *)textField{
+	
+}
+
+
 
 @end
