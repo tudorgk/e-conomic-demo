@@ -9,9 +9,11 @@
 #import "TDProjectListViewController.h"
 #import "Project.h"
 #import <MagicalRecord/MagicalRecord.h>
+#import "TDCoreDataManager.h"
+#import "TDProjectOverviewTableViewController.h"
 @interface TDProjectListViewController ()
 
-@property (nonatomic,strong) NSArray* projectArray;
+@property (nonatomic,strong) NSMutableArray* projectArray;
 
 -(void) configureView;
 -(void) configureTableView;
@@ -51,7 +53,7 @@
 
 -(void) configureView{
 	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(databaseDidChange) name:TDDatabaseDidChangeNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(databaseDidChange:) name:TDDatabaseDidChangeNotification object:nil];
 	
 }
 
@@ -69,8 +71,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	UITableViewCell * selectedCell = [tableView cellForRowAtIndexPath:indexPath];
 	[selectedCell setSelected:NO animated:YES];
+	
+	//push on navigation controller the project overview view controller
+	[self performSegueWithIdentifier:@"pushProjectOverview" sender:[self.projectArray objectAtIndex:indexPath.row]];
 }
 
+-(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+	if (editingStyle == UITableViewCellEditingStyleDelete) {
+		
+		Project * projectToDelete = [self.projectArray objectAtIndex:indexPath.row];
+		[self.projectArray removeObjectAtIndex:indexPath.row];
+		[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+		[[TDCoreDataManager sharedInstance] removeProjectFromDatabase:projectToDelete];
+		
+	}
+}
 #pragma mark - UITableViewDataSource methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -96,12 +111,20 @@
 }
 
 -(void) loadTableViewData{
-	self.projectArray = [Project MR_findAll];
+	self.projectArray = [NSMutableArray arrayWithArray:[Project MR_findAll]];
 }
 
--(void) databaseDidChange{
-	[self loadTableViewData];
-	[self.tableView reloadData];
+-(void) databaseDidChange:(id) sender{
+	
+	NSNotification * notif = (NSNotification*) sender;
+	
+	if ([notif.userInfo[@"deleted"] boolValue]) {
+		
+	}else{
+		[self loadTableViewData];
+		[self.tableView reloadData];
+	}
+	
 }
 
 
@@ -118,5 +141,26 @@
 
 - (IBAction)editButtonTapped:(id)sender {
 }
+
+
+ #pragma mark - Navigation
+ 
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+	
+}
+
+-(void) performSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+	if ([identifier isEqualToString:@"pushProjectOverview"]) {
+		//instantiate Project OVerview VC
+		TDProjectOverviewTableViewController * projectOverviewVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"projectOverview"];
+		Project *selectedProject = (Project*) sender;
+		projectOverviewVC.currentProject = selectedProject;
+		[self.navigationController pushViewController:projectOverviewVC animated:YES];
+	}
+}
+
 
 @end

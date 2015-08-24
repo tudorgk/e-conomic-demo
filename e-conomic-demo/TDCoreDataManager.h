@@ -14,7 +14,8 @@
 
 +(TDCoreDataManager*) sharedInstance;
 
--(void) addNewProjectToDatabaseWithName:(NSString*) projectName andDetails:(NSString*) details;
+-(void) addNewProjectToDatabaseWithName:(NSString*) projectName
+							 andDetails:(NSString*) details;
 -(void) removeProjectFromDatabase:(Project*) projectEntity;
 
 -(void) addTimeIntervalToProject:(Project*) project

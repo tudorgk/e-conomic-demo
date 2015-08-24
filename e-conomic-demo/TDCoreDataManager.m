@@ -68,7 +68,9 @@ static TDCoreDataManager *sharedInstance = nil;
 				DDLogInfo(@"Project saved successful!");
 				
 				//post notification of database change
-				[[NSNotificationCenter defaultCenter] postNotificationName:TDDatabaseDidChangeNotification object:self];
+				[[NSNotificationCenter defaultCenter] postNotificationName:TDDatabaseDidChangeNotification
+																	object:self
+																  userInfo:@{@"deleted": @NO}];
 				
 			}else{
 				DDLogError(@"Project did not save with error = %@", [error description]);
@@ -94,14 +96,16 @@ static TDCoreDataManager *sharedInstance = nil;
 	[MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
 		// this will occur on a background thread
 		
-		[projectEntity MR_deleteEntity];
+		[projectEntity MR_deleteEntityInContext:localContext];
 		
 		}completion:^(BOOL success, NSError *error) {
 		if (success) {
 			DDLogInfo(@"Project deleted successful!");
 			
 			//post notification of database change
-			[[NSNotificationCenter defaultCenter] postNotificationName:TDDatabaseDidChangeNotification object:self];
+			[[NSNotificationCenter defaultCenter] postNotificationName:TDDatabaseDidChangeNotification
+																object:self
+															  userInfo:@{@"deleted": @YES}];
 			
 		}else{
 			DDLogError(@"Project did not delete with error = %@", [error description]);
@@ -152,7 +156,9 @@ static TDCoreDataManager *sharedInstance = nil;
 				DDLogInfo(@"Time interval saved successful!");
 				
 				//post notification of database change
-				[[NSNotificationCenter defaultCenter] postNotificationName:TDDatabaseDidChangeNotification object:self];
+				[[NSNotificationCenter defaultCenter] postNotificationName:TDDatabaseDidChangeNotification
+																	object:self
+																  userInfo:@{@"deleted": @NO}];
 				
 			}else{
 				DDLogError(@"Time interval did not save with error = %@", [error description]);
@@ -185,7 +191,9 @@ static TDCoreDataManager *sharedInstance = nil;
 			DDLogInfo(@"Time interval deleted successful!");
 			
 			//post notification of database change
-			[[NSNotificationCenter defaultCenter] postNotificationName:TDDatabaseDidChangeNotification object:self];
+			[[NSNotificationCenter defaultCenter] postNotificationName:TDDatabaseDidChangeNotification
+																object:self
+															  userInfo:@{@"deleted": @YES}];
 			
 		}else{
 			DDLogError(@"Time interval did not delete with error = %@", [error description]);

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05157C651B8AFECF00A6714F /* TDProjectOverviewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05157C641B8AFECF00A6714F /* TDProjectOverviewTableViewController.m */; };
+		05157C681B8AFF8700A6714F /* TDIntervalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05157C671B8AFF8700A6714F /* TDIntervalTableViewCell.m */; };
+		05157C6C1B8B0EC200A6714F /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 05157C6B1B8B0EC200A6714F /* Project.m */; };
+		05157C6F1B8B0FEB00A6714F /* TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 05157C6E1B8B0FEB00A6714F /* TimeInterval.m */; };
+		052695881B8A6D9200257B10 /* TDNewIntervalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 052695871B8A6D9200257B10 /* TDNewIntervalTableViewController.m */; };
 		05C351D01B872A8A0050EC93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C351CF1B872A8A0050EC93 /* main.m */; };
 		05C351D31B872A8A0050EC93 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C351D21B872A8A0050EC93 /* AppDelegate.m */; };
 		05C351D61B872A8A0050EC93 /* TDProjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C351D51B872A8A0050EC93 /* TDProjectListViewController.m */; };
@@ -18,8 +23,6 @@
 		05C351FD1B8733150050EC93 /* e-conomic-model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05C351FB1B8733150050EC93 /* e-conomic-model.xcdatamodeld */; };
 		05C352051B87366B0050EC93 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C352031B87366B0050EC93 /* Constants.m */; };
 		05C3523E1B8741A60050EC93 /* TDProjectGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C3523D1B8741A60050EC93 /* TDProjectGenerator.m */; };
-		05C352431B87489B0050EC93 /* TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C352421B87489B0050EC93 /* TimeInterval.m */; };
-		05C352461B87489C0050EC93 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C352451B87489C0050EC93 /* Project.m */; };
 		05C352851B875C540050EC93 /* TDNewProjectModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C352841B875C540050EC93 /* TDNewProjectModalViewController.m */; };
 		05C352881B8763960050EC93 /* TDCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C352871B8763960050EC93 /* TDCoreDataManager.m */; };
 		05C3528C1B8768B10050EC93 /* NSString+StringValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C3528B1B8768B10050EC93 /* NSString+StringValidation.m */; };
@@ -38,6 +41,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05157C631B8AFECF00A6714F /* TDProjectOverviewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDProjectOverviewTableViewController.h; sourceTree = "<group>"; };
+		05157C641B8AFECF00A6714F /* TDProjectOverviewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDProjectOverviewTableViewController.m; sourceTree = "<group>"; };
+		05157C661B8AFF8700A6714F /* TDIntervalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDIntervalTableViewCell.h; sourceTree = "<group>"; };
+		05157C671B8AFF8700A6714F /* TDIntervalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDIntervalTableViewCell.m; sourceTree = "<group>"; };
+		05157C6A1B8B0EC200A6714F /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		05157C6B1B8B0EC200A6714F /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
+		05157C6D1B8B0FEB00A6714F /* TimeInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeInterval.h; sourceTree = "<group>"; };
+		05157C6E1B8B0FEB00A6714F /* TimeInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeInterval.m; sourceTree = "<group>"; };
+		052695861B8A6D9200257B10 /* TDNewIntervalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDNewIntervalTableViewController.h; sourceTree = "<group>"; };
+		052695871B8A6D9200257B10 /* TDNewIntervalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDNewIntervalTableViewController.m; sourceTree = "<group>"; };
 		05C351CA1B872A8A0050EC93 /* e-conomic-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "e-conomic-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C351CE1B872A8A0050EC93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05C351CF1B872A8A0050EC93 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -59,10 +72,6 @@
 		05C352041B87366B0050EC93 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		05C3523C1B8741A60050EC93 /* TDProjectGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDProjectGenerator.h; sourceTree = "<group>"; };
 		05C3523D1B8741A60050EC93 /* TDProjectGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDProjectGenerator.m; sourceTree = "<group>"; };
-		05C352411B87489B0050EC93 /* TimeInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeInterval.h; sourceTree = "<group>"; };
-		05C352421B87489B0050EC93 /* TimeInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeInterval.m; sourceTree = "<group>"; };
-		05C352441B87489C0050EC93 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
-		05C352451B87489C0050EC93 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
 		05C352831B875C540050EC93 /* TDNewProjectModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDNewProjectModalViewController.h; sourceTree = "<group>"; };
 		05C352841B875C540050EC93 /* TDNewProjectModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDNewProjectModalViewController.m; sourceTree = "<group>"; };
 		05C352861B8763960050EC93 /* TDCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCoreDataManager.h; sourceTree = "<group>"; };
@@ -94,6 +103,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05157C621B8AFE4300A6714F /* Project Interval Overview List */ = {
+			isa = PBXGroup;
+			children = (
+				05157C691B8AFF8C00A6714F /* Interval Custom Cell */,
+				05157C631B8AFECF00A6714F /* TDProjectOverviewTableViewController.h */,
+				05157C641B8AFECF00A6714F /* TDProjectOverviewTableViewController.m */,
+			);
+			name = "Project Interval Overview List";
+			sourceTree = "<group>";
+		};
+		05157C691B8AFF8C00A6714F /* Interval Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				05157C661B8AFF8700A6714F /* TDIntervalTableViewCell.h */,
+				05157C671B8AFF8700A6714F /* TDIntervalTableViewCell.m */,
+			);
+			name = "Interval Custom Cell";
+			sourceTree = "<group>";
+		};
+		052695891B8A6D9600257B10 /* New Interval View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				052695861B8A6D9200257B10 /* TDNewIntervalTableViewController.h */,
+				052695871B8A6D9200257B10 /* TDNewIntervalTableViewController.m */,
+			);
+			name = "New Interval View Controller";
+			sourceTree = "<group>";
+		};
 		05C351C11B872A8A0050EC93 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +198,8 @@
 		05C351F61B872F490050EC93 /* Project List */ = {
 			isa = PBXGroup;
 			children = (
+				05157C621B8AFE4300A6714F /* Project Interval Overview List */,
+				052695891B8A6D9600257B10 /* New Interval View Controller */,
 				05C352821B875C370050EC93 /* New Project Modal */,
 				05C351D41B872A8A0050EC93 /* TDProjectListViewController.h */,
 				05C351D51B872A8A0050EC93 /* TDProjectListViewController.m */,
@@ -226,10 +265,10 @@
 		05C352471B8748AB0050EC93 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				05C352441B87489C0050EC93 /* Project.h */,
-				05C352451B87489C0050EC93 /* Project.m */,
-				05C352411B87489B0050EC93 /* TimeInterval.h */,
-				05C352421B87489B0050EC93 /* TimeInterval.m */,
+				05157C6D1B8B0FEB00A6714F /* TimeInterval.h */,
+				05157C6E1B8B0FEB00A6714F /* TimeInterval.m */,
+				05157C6A1B8B0EC200A6714F /* Project.h */,
+				05157C6B1B8B0EC200A6714F /* Project.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -448,12 +487,15 @@
 				05C351D91B872A8A0050EC93 /* TDProjectsOverviewViewController.m in Sources */,
 				05C351D31B872A8A0050EC93 /* AppDelegate.m in Sources */,
 				05C351D61B872A8A0050EC93 /* TDProjectListViewController.m in Sources */,
+				05157C6C1B8B0EC200A6714F /* Project.m in Sources */,
 				05C352851B875C540050EC93 /* TDNewProjectModalViewController.m in Sources */,
-				05C352461B87489C0050EC93 /* Project.m in Sources */,
+				05157C651B8AFECF00A6714F /* TDProjectOverviewTableViewController.m in Sources */,
+				052695881B8A6D9200257B10 /* TDNewIntervalTableViewController.m in Sources */,
 				05C3523E1B8741A60050EC93 /* TDProjectGenerator.m in Sources */,
 				05C352881B8763960050EC93 /* TDCoreDataManager.m in Sources */,
+				05157C6F1B8B0FEB00A6714F /* TimeInterval.m in Sources */,
 				05C351D01B872A8A0050EC93 /* main.m in Sources */,
-				05C352431B87489B0050EC93 /* TimeInterval.m in Sources */,
+				05157C681B8AFF8700A6714F /* TDIntervalTableViewCell.m in Sources */,
 				05C351FD1B8733150050EC93 /* e-conomic-model.xcdatamodeld in Sources */,
 				05C352051B87366B0050EC93 /* Constants.m in Sources */,
 				05C3528C1B8768B10050EC93 /* NSString+StringValidation.m in Sources */,

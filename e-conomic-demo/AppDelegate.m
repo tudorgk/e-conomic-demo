@@ -103,6 +103,7 @@
 	
 	[[UINavigationBar appearanceWhenContainedIn:[UINavigationController class], nil] setBarTintColor:[UIColor colorWithRed:101.0f/255.0f green:79.0f/255.0f blue:155.0f/255.0f alpha:1]];
 	[[UIBarButtonItem appearanceWhenContainedIn:[UINavigationController class], nil] setTintColor:[UIColor whiteColor]];
+	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 	[[UINavigationBar appearanceWhenContainedIn:[UINavigationController class], nil] setTitleTextAttributes:attributes];
 	[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 
