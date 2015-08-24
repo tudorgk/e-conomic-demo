@@ -7,10 +7,20 @@
 //
 
 #import "TDNewIntervalTableViewController.h"
+#import <RMDateSelectionViewController/RMDateSelectionViewController.h>
+#import "TDTimeUtils.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 @interface TDNewIntervalTableViewController ()
+
+@property (nonatomic,strong) UIDatePicker * startDatePicker;
+@property (nonatomic,strong) UIDatePicker * endDatePicker;
+
+@property (nonatomic,strong) NSDate *selectedStartDate;
+@property (nonatomic,strong) NSDate *selectedEndDate;
 
 -(void) configureView;
 -(void) configureTableView;
+-(void) configureDatePickers;
 
 @end
 
@@ -21,6 +31,7 @@
 	
 	[self configureView];
 	[self configureTableView];
+	[self configureDatePickers];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,8 +53,13 @@
 }
 
 -(void) configureTableView{
+	self.textFieldTaskName.delegate = self;
 	
+	//instantiate and configure date pickers
+	self.startDatePicker = [[UIDatePicker alloc] init];
 }
+
+
 
 #pragma mark - UITableView Delegate methods
 
@@ -51,10 +67,12 @@
 	switch (indexPath.row) {
 		case 1:
 		{
+			[self openDateSelectionController:indexPath];
 		}
 			break;
 		case 2:
 		{
+			[self openDateSelectionController:indexPath];
 		}
 			break;
 			
@@ -64,39 +82,54 @@
 }
 
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
+#pragma mark - Date Selection Methods
 
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
+-(void) configureDatePickers{
+	self.selectedStartDate = [TDTimeUtils dateToNearest15MinutesForDate:[NSDate date]];
+	
+	DDLogDebug(@"selected Start Date = %@", self.selectedStartDate);
+	
+	self.selectedEndDate = [self.selectedStartDate dateByAddingTimeInterval:(15*60)];
+}
 
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
 
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
+- (IBAction)openDateSelectionController:(id)sender {
+	
+	//if start date or end date selected
+	NSIndexPath * selectedIndexPath = (NSIndexPath*) sender;
+	
+	if (selectedIndexPath.row == 1) {
+		//Create select action
+		RMAction *selectAction = [RMAction actionWithTitle:@"Select" style:RMActionStyleDone andHandler:^(RMActionController *controller) {
+			
+			NSLog(@"Successfully selected date: %@", ((UIDatePicker *)controller.contentView).date);
+		}];
+		
+		//Create cancel action
+		RMAction *cancelAction = [RMAction actionWithTitle:@"Cancel" style:RMActionStyleCancel andHandler:^(RMActionController *controller) {
+			NSLog(@"Date selection was canceled");
+		}];
+		
+		//Create date selection view controller
+		RMDateSelectionViewController *dateSelectionController = [RMDateSelectionViewController actionControllerWithStyle:RMActionControllerStyleBlack selectAction:selectAction andCancelAction:cancelAction];
+
+		
+		//start date
+		dateSelectionController.title = @"Select start date";
+
+		dateSelectionController.datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+		dateSelectionController.datePicker.minuteInterval = 15;
+		dateSelectionController.datePicker.date = self.selectedStartDate;
+		
+		DDLogDebug(@"date picker Start Date = %@", dateSelectionController.datePicker.date);
+
+		[self presentViewController:dateSelectionController animated:YES completion:nil];
+	}
+	
+	
+	
+}
+
 
 
  #pragma mark - Navigation
