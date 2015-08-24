@@ -30,16 +30,8 @@ static TDCoreDataManager *sharedInstance = nil;
 }
 
 -(void) addNewProjectToDatabaseWithName:(NSString *)projectName andDetails:(NSString *)details{
-
-	//for letting the application create the project even when
-	//it's shoved in the background ^^
-	UIApplication *application = [UIApplication sharedApplication];
 	
-	__block UIBackgroundTaskIdentifier bgTask = [application beginBackgroundTaskWithExpirationHandler:^{
-		[application endBackgroundTask:bgTask];
-		bgTask = UIBackgroundTaskInvalid;
-	}];
-
+	
 	
 	//first validate the strings
 	if ([projectName validateAlphanumericSpace] &&
@@ -80,7 +72,7 @@ static TDCoreDataManager *sharedInstance = nil;
 			bgTask = UIBackgroundTaskInvalid;
 		}];
 	}
-
+	
 }
 
 -(void) removeProjectFromDatabase:(Project *)projectEntity{
@@ -98,7 +90,7 @@ static TDCoreDataManager *sharedInstance = nil;
 		
 		[projectEntity MR_deleteEntityInContext:localContext];
 		
-		}completion:^(BOOL success, NSError *error) {
+	}completion:^(BOOL success, NSError *error) {
 		if (success) {
 			DDLogInfo(@"Project deleted successful!");
 			
@@ -114,11 +106,12 @@ static TDCoreDataManager *sharedInstance = nil;
 		[application endBackgroundTask:bgTask];
 		bgTask = UIBackgroundTaskInvalid;
 	}];
-
+	
 }
 
 -(void) addTimeIntervalToProject:(Project *)project withTitle:(NSString *)title startDate:(NSDate *)startDate andEndDate:(NSDate *)endDate{
-	//for letting the application create the project even when
+	
+	//for letting the application create the time interval even when
 	//it's shoved in the background ^^
 	UIApplication *application = [UIApplication sharedApplication];
 	
@@ -127,47 +120,33 @@ static TDCoreDataManager *sharedInstance = nil;
 		bgTask = UIBackgroundTaskInvalid;
 	}];
 	
+	[MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+		// this will occur on a background thread
+		
+		//create the new project entity
+		TimeInterval* newTimeInterval = [TimeInterval MR_createEntityInContext:localContext];
+		newTimeInterval.startDate = startDate;
+		newTimeInterval.endDate = endDate;
+		newTimeInterval.title=title;
+		[[project MR_inContext:localContext] addTimeIntervalObject:newTimeInterval];
+		
+	}completion:^(BOOL success, NSError *error) {
+		if (success) {
+			DDLogInfo(@"Time interval saved successful!");
+			
+			//post notification of database change
+			[[NSNotificationCenter defaultCenter] postNotificationName:TDDatabaseDidChangeNotification
+																object:self
+															  userInfo:@{@"deleted": @NO}];
+			
+		}else{
+			DDLogError(@"Time interval did not save with error = %@", [error description]);
+		}
+		
+		[application endBackgroundTask:bgTask];
+		bgTask = UIBackgroundTaskInvalid;
+	}];
 	
-	//first validate the strings
-	if ([title validateAlphanumericSpace] && [title validateNotEmpty]) {
-		//if both strings are valid, proceed
-		
-		//for letting the application create the time interval even when
-		//it's shoved in the background ^^
-		UIApplication *application = [UIApplication sharedApplication];
-		
-		__block UIBackgroundTaskIdentifier bgTask = [application beginBackgroundTaskWithExpirationHandler:^{
-			[application endBackgroundTask:bgTask];
-			bgTask = UIBackgroundTaskInvalid;
-		}];
-		
-		[MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
-			// this will occur on a background thread
-			
-			//create the new project entity
-			TimeInterval* newTimeInterval = [TimeInterval MR_createEntityInContext:localContext];
-			newTimeInterval.startDate = startDate;
-			newTimeInterval.endDate = endDate;
-			newTimeInterval.title=title;
-			newTimeInterval.project = project;
-			
-		}completion:^(BOOL success, NSError *error) {
-			if (success) {
-				DDLogInfo(@"Time interval saved successful!");
-				
-				//post notification of database change
-				[[NSNotificationCenter defaultCenter] postNotificationName:TDDatabaseDidChangeNotification
-																	object:self
-																  userInfo:@{@"deleted": @NO}];
-				
-			}else{
-				DDLogError(@"Time interval did not save with error = %@", [error description]);
-			}
-			
-			[application endBackgroundTask:bgTask];
-			bgTask = UIBackgroundTaskInvalid;
-		}];
-	}
 	
 }
 
@@ -202,7 +181,7 @@ static TDCoreDataManager *sharedInstance = nil;
 		[application endBackgroundTask:bgTask];
 		bgTask = UIBackgroundTaskInvalid;
 	}];
-
+	
 }
 
 @end

@@ -35,7 +35,6 @@
 	
 	[self configureView];
 	[self configureTableView];
-	
 	[self loadTableViewData];
 }
 

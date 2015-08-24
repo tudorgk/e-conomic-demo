@@ -42,7 +42,8 @@
 	//check if the dates are in
 	for (TimeInterval * ti in projectTimeIntervals) {
 		if ([NSDate isDate:startDate inRangeFirstDate:ti.startDate lastDate:ti.endDate] ||
-			[NSDate isDate:endDate inRangeFirstDate:ti.startDate lastDate:ti.endDate]) {
+			[NSDate isDate:endDate inRangeFirstDate:ti.startDate lastDate:ti.endDate] ||
+			[ti.startDate isEqualToDate:startDate] || [ti.endDate isEqualToDate:endDate]) {
 			return TDTimeIntervalAssertionInvalid;
 		}
 	}

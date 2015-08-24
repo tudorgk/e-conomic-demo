@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Project.h"
-@interface TDProjectOverviewTableViewController : UITableViewController
+#import "TDNewIntervalTableViewController.h"
+@interface TDProjectOverviewTableViewController : UITableViewController <TDNewIntervalTableViewControllerDelegate>
 @property (nonatomic,strong) Project * currentProject;
 @end

@@ -115,6 +115,7 @@
 		05157C621B8AFE4300A6714F /* Project Interval Overview List */ = {
 			isa = PBXGroup;
 			children = (
+				052695891B8A6D9600257B10 /* New Interval View Controller */,
 				05157C691B8AFF8C00A6714F /* Interval Custom Cell */,
 				05157C631B8AFECF00A6714F /* TDProjectOverviewTableViewController.h */,
 				05157C641B8AFECF00A6714F /* TDProjectOverviewTableViewController.m */,
@@ -235,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				05157C621B8AFE4300A6714F /* Project Interval Overview List */,
-				052695891B8A6D9600257B10 /* New Interval View Controller */,
 				05C352821B875C370050EC93 /* New Project Modal */,
 				05C351D41B872A8A0050EC93 /* TDProjectListViewController.h */,
 				05C351D51B872A8A0050EC93 /* TDProjectListViewController.m */,

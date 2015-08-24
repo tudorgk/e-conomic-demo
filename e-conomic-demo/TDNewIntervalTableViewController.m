@@ -10,13 +10,13 @@
 #import <RMDateSelectionViewController/RMDateSelectionViewController.h>
 #import "TDTimeUtils.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
+#import "TDTimeIntervalValidator.h"
 @interface TDNewIntervalTableViewController ()
-
-@property (nonatomic,strong) UIDatePicker * startDatePicker;
-@property (nonatomic,strong) UIDatePicker * endDatePicker;
 
 @property (nonatomic,strong) NSDate *selectedStartDate;
 @property (nonatomic,strong) NSDate *selectedEndDate;
+
+@property (nonatomic,strong) NSDateFormatter * dateFormatter;
 
 -(void) configureView;
 -(void) configureTableView;
@@ -30,8 +30,9 @@
 	[super viewDidLoad];
 	
 	[self configureView];
-	[self configureTableView];
 	[self configureDatePickers];
+	[self configureTableView];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,8 +56,8 @@
 -(void) configureTableView{
 	self.textFieldTaskName.delegate = self;
 	
-	//instantiate and configure date pickers
-	self.startDatePicker = [[UIDatePicker alloc] init];
+	self.labelStartDate.text = [self.dateFormatter stringFromDate:self.selectedStartDate];
+	self.labelEndDate.text = [self.dateFormatter stringFromDate:self.selectedEndDate];
 }
 
 
@@ -64,10 +65,14 @@
 #pragma mark - UITableView Delegate methods
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+	UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+	[cell setSelected:NO animated:YES];
+	
 	switch (indexPath.row) {
 		case 1:
 		{
 			[self openDateSelectionController:indexPath];
+			
 		}
 			break;
 		case 2:
@@ -85,11 +90,18 @@
 #pragma mark - Date Selection Methods
 
 -(void) configureDatePickers{
+	
+	//set up initial dates
 	self.selectedStartDate = [TDTimeUtils dateToNearest15MinutesForDate:[NSDate date]];
-	
 	DDLogDebug(@"selected Start Date = %@", self.selectedStartDate);
+	self.selectedEndDate = [self.selectedStartDate dateByAddingTimeInterval:(30*60)];
 	
-	self.selectedEndDate = [self.selectedStartDate dateByAddingTimeInterval:(15*60)];
+	//set up date formatter
+	self.dateFormatter = [[NSDateFormatter alloc] init];
+	[self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+	[self.dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+	[self.dateFormatter setLocale:[NSLocale currentLocale]];
+	
 }
 
 
@@ -98,11 +110,21 @@
 	//if start date or end date selected
 	NSIndexPath * selectedIndexPath = (NSIndexPath*) sender;
 	
+	// Create a weak reference
+	__weak TDNewIntervalTableViewController *weakSelf = self;
+	
 	if (selectedIndexPath.row == 1) {
 		//Create select action
 		RMAction *selectAction = [RMAction actionWithTitle:@"Select" style:RMActionStyleDone andHandler:^(RMActionController *controller) {
 			
+			NSDate * selectedDate = ((UIDatePicker *)controller.contentView).date;
 			NSLog(@"Successfully selected date: %@", ((UIDatePicker *)controller.contentView).date);
+			
+			//set current selected date
+			weakSelf.selectedStartDate = selectedDate;
+			
+			//refresh the label
+			weakSelf.labelStartDate.text = [weakSelf.dateFormatter stringFromDate:weakSelf.selectedStartDate];
 		}];
 		
 		//Create cancel action
@@ -115,30 +137,73 @@
 
 		
 		//start date
-		dateSelectionController.title = @"Select start date";
+		dateSelectionController.title = @"Select start time";
 
 		dateSelectionController.datePicker.datePickerMode = UIDatePickerModeDateAndTime;
 		dateSelectionController.datePicker.minuteInterval = 15;
 		dateSelectionController.datePicker.date = self.selectedStartDate;
+		dateSelectionController.datePicker.maximumDate = [self.selectedEndDate dateByAddingTimeInterval:(-15*60)];
 		
 		DDLogDebug(@"date picker Start Date = %@", dateSelectionController.datePicker.date);
 
 		[self presentViewController:dateSelectionController animated:YES completion:nil];
+	}else{
+		
+		// Create a weak reference
+		__weak TDNewIntervalTableViewController *weakSelf = self;
+		
+		//Create select action
+		RMAction *selectAction = [RMAction actionWithTitle:@"Select" style:RMActionStyleDone andHandler:^(RMActionController *controller) {
+			NSDate * selectedDate = ((UIDatePicker *)controller.contentView).date;
+			NSLog(@"Successfully selected date: %@", ((UIDatePicker *)controller.contentView).date);
+			
+			//set current selected date
+			weakSelf.selectedEndDate = selectedDate;
+			
+			//refresh the label
+			weakSelf.labelEndDate.text = [weakSelf.dateFormatter stringFromDate:weakSelf.selectedEndDate];
+		}];
+		
+		//Create cancel action
+		RMAction *cancelAction = [RMAction actionWithTitle:@"Cancel" style:RMActionStyleCancel andHandler:^(RMActionController *controller) {
+			NSLog(@"Date selection was canceled");
+		}];
+		
+		//Create date selection view controller
+		RMDateSelectionViewController *dateSelectionController = [RMDateSelectionViewController actionControllerWithStyle:RMActionControllerStyleBlack selectAction:selectAction andCancelAction:cancelAction];
+		
+		
+		//start date
+		dateSelectionController.title = @"Select end time";
+		
+		dateSelectionController.datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+		dateSelectionController.datePicker.minuteInterval = 15;
+		dateSelectionController.datePicker.date = self.selectedEndDate;
+		dateSelectionController.datePicker.minimumDate = [self.selectedStartDate dateByAddingTimeInterval:(15*60)];
+		
+		DDLogDebug(@"date picker Start Date = %@", dateSelectionController.datePicker.date);
+		
+		[self presentViewController:dateSelectionController animated:YES completion:nil];
+
 	}
-	
-	
-	
+
 }
 
-
-
- #pragma mark - Navigation
+#pragma mark - Navigation
 
 -(void) cancelButtonPressed:(id) sender{
+	if (self.delegate != nil && [self.delegate respondsToSelector:@selector(newIntervalTableViewControllerdidCancel:)]) {
+		[self.delegate newIntervalTableViewControllerdidCancel:self];
+	}
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void) saveButtonPressed: (id) sender{
+	
+	if (self.delegate != nil && [self.delegate respondsToSelector:@selector(newIntervalTableViewControllerDidSave:taskName:withStartDate:andEndDate:)]) {
+		[self.delegate newIntervalTableViewControllerDidSave:self taskName:self.textFieldTaskName.text withStartDate:self.selectedStartDate andEndDate:self.selectedEndDate];
+	}
+	[self dismissViewControllerAnimated:YES completion:nil];
 	
 }
 
