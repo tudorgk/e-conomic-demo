@@ -11,6 +11,7 @@
 #import "Project.h"
 #import "TimeInterval.h"
 #import "TDProjectSectionHeaderView.h"
+#import "TDTimeUtils.h"
 @interface TDProjectsOverviewViewController ()
 -(void) configureView;
 -(void) configureTableView;
@@ -79,6 +80,21 @@
 	
 	headerView.labelProjectName.text = proj.name;
 	
+	if ([[proj timeInterval] count] == 0) {
+		headerView.labelProjectDuration.text = @"No tasks yet";
+	}else{
+		
+		NSTimeInterval totalElapsedTime = 0;
+		
+		for (TimeInterval * ti in [proj timeInterval]) {
+			
+			NSTimeInterval elapsedTimeForTI = [TDTimeUtils calculateElapsedTimeForTwoDates:ti.startDate andEndDate:ti.endDate];
+			totalElapsedTime += elapsedTimeForTI;
+		}
+		
+		headerView.labelProjectDuration.text = [TDTimeUtils stringFromTimeInterval:totalElapsedTime];
+		
+	}
 	
 	return headerView;
 }
@@ -94,8 +110,14 @@
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"defaultCell"];
 	
-	cell.textLabel.text = [[self.projectOverviewsArray objectAtIndex:indexPath.row] name];
+	Project* proj = [self.projectOverviewsArray objectAtIndex:indexPath.section] ;
+	NSSet *timeIntervalSet = [proj timeInterval];
+	
+	TimeInterval * timeInterval = [[timeIntervalSet allObjects] objectAtIndex:indexPath.row];
 
+	cell.textLabel.text = [timeInterval title];
+	cell.detailTextLabel.text = [TDTimeUtils stringDifferenceBetweenStartDate:timeInterval.startDate andEndDate:timeInterval.endDate];
+	
 	return cell;
 }
 
@@ -105,7 +127,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-	return self.projectOverviewsArray.count;
+	
+	NSSet *timeIntervalSet = [(Project*)[self.projectOverviewsArray objectAtIndex:section] timeInterval];
+	
+	DDLogDebug(@"project intervals set count = %d",[[timeIntervalSet allObjects ]count]);
+	
+	return [[timeIntervalSet allObjects ]count];
 }
 
 -(void) loadTableViewData{
@@ -113,16 +140,10 @@
 }
 
 -(void) databaseDidChange:(id) sender{
-	
-	NSNotification * notif = (NSNotification*) sender;
-	
-	if ([notif.userInfo[@"deleted"] boolValue]) {
 		
-	}else{
-		[self loadTableViewData];
-		[self.tableView reloadData];
-	}
-	
+	[self loadTableViewData];
+	[self.tableView reloadData];
+
 }
 
 

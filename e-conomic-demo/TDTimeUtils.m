@@ -42,4 +42,52 @@
 	return components.weekday;
 
 }
+
++(NSDateComponents *)differenceBetweenStartDate:(NSDate *)startDate andEndDate:(NSDate *)endDate{
+	NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+	NSDateComponents *components = [gregorianCalendar components:NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute
+														fromDate:startDate
+														  toDate:endDate
+														 options:0];
+	return components;
+}
+
++(NSString*) stringDifferenceBetweenStartDate:(NSDate *)startDate andEndDate:(NSDate *)endDate{
+	NSDateComponents * diffComp = [TDTimeUtils differenceBetweenStartDate:startDate andEndDate:endDate];
+	NSMutableString * returnString = [NSMutableString new];
+	
+	if (diffComp.day!=0) {
+		[returnString appendFormat:@"%dd",diffComp.day];
+	}
+	
+	if (diffComp.hour !=0) {
+		[returnString appendFormat:@"%dh",diffComp.hour];
+	}
+	
+	if (diffComp.minute !=0) {
+		[returnString appendFormat:@"%dm",diffComp.minute];
+	}
+	
+	NSLog(@"return String = %@", returnString);
+	
+	return [returnString description];
+	
+}
+
++(NSTimeInterval) calculateElapsedTimeForTwoDates:(NSDate*) startDate andEndDate:(NSDate*) endDate;{
+	NSTimeInterval distanceBetweenDates = [endDate timeIntervalSinceDate:startDate];
+	return distanceBetweenDates;
+}
+
++(NSString*) stringFromTimeInterval:(NSTimeInterval) timeInterval{
+	NSInteger ti = (NSInteger)timeInterval;
+	NSInteger minutes = (ti / 60) % 60;
+	NSInteger hours = (ti / 3600) % 24;
+	NSInteger days = (ti / (3600 * 24));
+	
+	return [NSString stringWithFormat:@"%ldd%ldh%ldm", (long)days, (long)hours, (long)minutes];
+}
+
+
+
 @end

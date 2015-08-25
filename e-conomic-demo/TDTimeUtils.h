@@ -15,4 +15,13 @@
 +(NSInteger) dayOfWeekFromDate:(NSDate*) date;
 
 + (NSDate *)dateToNearest15MinutesForDate:(NSDate*)date;
+
++(NSDateComponents*) differenceBetweenStartDate:(NSDate*) startDate andEndDate:(NSDate*) endDate;
+
++(NSString*) stringDifferenceBetweenStartDate:(NSDate*) startDate andEndDate:(NSDate*) endDate;
+
++(NSTimeInterval) calculateElapsedTimeForTwoDates:(NSDate*) startDate andEndDate:(NSDate*) endDate;
+
++(NSString*) stringFromTimeInterval:(NSTimeInterval) timeInterval;
+
 @end
