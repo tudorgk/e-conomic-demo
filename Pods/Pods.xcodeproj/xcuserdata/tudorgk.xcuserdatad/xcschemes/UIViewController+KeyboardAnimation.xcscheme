@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BDAC0FBD22E475BF86EBA68F"
+               BlueprintIdentifier = "5EBDA35DBEEA36D70FB448A7"
                BuildableName = "libUIViewController+KeyboardAnimation.a"
                BlueprintName = "UIViewController+KeyboardAnimation"
                ReferencedContainer = "container:Pods.xcodeproj">

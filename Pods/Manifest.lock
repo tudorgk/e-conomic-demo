@@ -34,27 +34,36 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.0.1):
     - CocoaLumberjack/Default
+  - IQKeyboardManager (3.2.4)
   - MagicalRecord (2.3.0)
   - Objection (1.6.1)
   - ObjectiveSugar (1.1.0)
+  - RMActionController (1.0.4)
+  - RMDateSelectionViewController (2.0.1):
+    - RMActionController (~> 1.0.0)
   - UIViewController+KeyboardAnimation (1.2)
 
 DEPENDENCIES:
   - AFNetworking
   - Bolts
   - CocoaLumberjack
+  - IQKeyboardManager
   - MagicalRecord
   - Objection
   - ObjectiveSugar
+  - RMDateSelectionViewController (~> 2.0.1)
   - UIViewController+KeyboardAnimation (~> 1.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
   CocoaLumberjack: 019d1361244274a6138c788c6cb80baabc13fb8f
+  IQKeyboardManager: 555b1231fefafb21b19278d7cca72986a27b748b
   MagicalRecord: 89eb7d7ead39fb37f01c3d010665ee94d17f8dba
   Objection: ed03f2219cb22d2b5b893114219fe6c7e3263bde
   ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
+  RMActionController: 19423654600d40ca15132a4e548d005042d68f09
+  RMDateSelectionViewController: 027bdeeaacb78b2b528808ed21efd697490d2b4e
   UIViewController+KeyboardAnimation: 5beaa558cabe3353c37fdd5476c68dac8dc507d5
 
 COCOAPODS: 0.38.2
