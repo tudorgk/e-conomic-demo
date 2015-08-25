@@ -14,6 +14,7 @@
 @interface TDProjectListViewController ()
 
 @property (nonatomic,strong) NSMutableArray* projectArray;
+@property (nonatomic,strong) NSDateFormatter * dateFormatter;
 
 -(void) configureView;
 -(void) configureTableView;
@@ -53,6 +54,12 @@
 -(void) configureView{
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(databaseDidChange:) name:TDDatabaseDidChangeNotification object:nil];
+	
+	//set up date formatter
+	self.dateFormatter = [[NSDateFormatter alloc] init];
+	[self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+	[self.dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+	[self.dateFormatter setLocale:[NSLocale currentLocale]];
 	
 }
 
@@ -95,7 +102,7 @@
 	Project * project = [self.projectArray objectAtIndex:indexPath.row];
 	
 	cell.textLabel.text = project.name;
-	cell.detailTextLabel.text = project.details;
+//	cell.detailTextLabel.text = project.details;
 	
 	return cell;
 }

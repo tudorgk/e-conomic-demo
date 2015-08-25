@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TDProjectsOverviewViewController : UITableViewController
+@interface TDProjectsOverviewViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 
 
 @end

@@ -29,6 +29,8 @@
 		05C352851B875C540050EC93 /* TDNewProjectModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C352841B875C540050EC93 /* TDNewProjectModalViewController.m */; };
 		05C352881B8763960050EC93 /* TDCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C352871B8763960050EC93 /* TDCoreDataManager.m */; };
 		05C3528C1B8768B10050EC93 /* NSString+StringValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C3528B1B8768B10050EC93 /* NSString+StringValidation.m */; };
+		05D084A01B8C6E1000CD089E /* TDProjectSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D0849F1B8C6E1000CD089E /* TDProjectSectionHeaderView.m */; };
+		05D084A21B8C6E2C00CD089E /* TDProjectSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D084A11B8C6E2C00CD089E /* TDProjectSectionHeaderView.xib */; };
 		7C1F34DED321FADAAC5B5972 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 548FE8108CD480B42A766BC4 /* libPods.a */; };
 		838E1BCD5986130F53BEBCB5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 548FE8108CD480B42A766BC4 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -87,6 +89,9 @@
 		05C352871B8763960050EC93 /* TDCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCoreDataManager.m; sourceTree = "<group>"; };
 		05C3528A1B8768B10050EC93 /* NSString+StringValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringValidation.h"; sourceTree = "<group>"; };
 		05C3528B1B8768B10050EC93 /* NSString+StringValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringValidation.m"; sourceTree = "<group>"; };
+		05D0849E1B8C6E1000CD089E /* TDProjectSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDProjectSectionHeaderView.h; sourceTree = "<group>"; };
+		05D0849F1B8C6E1000CD089E /* TDProjectSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDProjectSectionHeaderView.m; sourceTree = "<group>"; };
+		05D084A11B8C6E2C00CD089E /* TDProjectSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDProjectSectionHeaderView.xib; sourceTree = "<group>"; };
 		1D49A09B80E84C22FFE8FF62 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		548FE8108CD480B42A766BC4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0DADDD27101DE8BA230052 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +251,7 @@
 		05C351F71B872F560050EC93 /* Projects Overview */ = {
 			isa = PBXGroup;
 			children = (
+				05D0849D1B8C6DE600CD089E /* Project Section Header */,
 				05C351D71B872A8A0050EC93 /* TDProjectsOverviewViewController.h */,
 				05C351D81B872A8A0050EC93 /* TDProjectsOverviewViewController.m */,
 			);
@@ -337,6 +343,16 @@
 				05C3528B1B8768B10050EC93 /* NSString+StringValidation.m */,
 			);
 			name = "Validation Category";
+			sourceTree = "<group>";
+		};
+		05D0849D1B8C6DE600CD089E /* Project Section Header */ = {
+			isa = PBXGroup;
+			children = (
+				05D0849E1B8C6E1000CD089E /* TDProjectSectionHeaderView.h */,
+				05D0849F1B8C6E1000CD089E /* TDProjectSectionHeaderView.m */,
+				05D084A11B8C6E2C00CD089E /* TDProjectSectionHeaderView.xib */,
+			);
+			name = "Project Section Header";
 			sourceTree = "<group>";
 		};
 		86B9ECF029E25F0C7AEAB841 /* Frameworks */ = {
@@ -443,6 +459,7 @@
 				05C351DC1B872A8A0050EC93 /* Main.storyboard in Resources */,
 				05C351E11B872A8A0050EC93 /* LaunchScreen.xib in Resources */,
 				05C351DE1B872A8A0050EC93 /* Images.xcassets in Resources */,
+				05D084A21B8C6E2C00CD089E /* TDProjectSectionHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +551,7 @@
 				05C3523E1B8741A60050EC93 /* TDProjectGenerator.m in Sources */,
 				05C352881B8763960050EC93 /* TDCoreDataManager.m in Sources */,
 				05157C6F1B8B0FEB00A6714F /* TimeInterval.m in Sources */,
+				05D084A01B8C6E1000CD089E /* TDProjectSectionHeaderView.m in Sources */,
 				05C351D01B872A8A0050EC93 /* main.m in Sources */,
 				05157C681B8AFF8700A6714F /* TDIntervalTableViewCell.m in Sources */,
 				05C351FD1B8733150050EC93 /* e-conomic-model.xcdatamodeld in Sources */,

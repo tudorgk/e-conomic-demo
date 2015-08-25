@@ -277,7 +277,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aIt-5G-ZdB">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aIt-5G-ZdB">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
@@ -293,11 +293,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Project List" id="GUH-gW-7fz">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="S89-CJ-63Z">
-                            <connections>
-                                <action selector="editButtonTapped:" destination="d7a-eH-P1B" id="FmT-ss-Tz6"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jZ6-FD-5Q5">
                             <connections>
                                 <action selector="addButtonTapped:" destination="d7a-eH-P1B" id="tKN-Zv-MJs"/>
@@ -306,7 +301,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="barButtonItemAdd" destination="jZ6-FD-5Q5" id="9yN-VO-Xdy"/>
-                        <outlet property="barButtonItemEdit" destination="S89-CJ-63Z" id="iCG-U9-fQx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBC-8x-kCO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -322,7 +316,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="nY5-40-52u">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="defaultCell" id="nY5-40-52u">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nY5-40-52u" id="Sbb-lC-1yU">
                                     <autoresizingMask key="autoresizingMask"/>
