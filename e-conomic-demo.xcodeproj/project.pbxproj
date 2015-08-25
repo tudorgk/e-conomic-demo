@@ -25,7 +25,6 @@
 		05C351ED1B872A8A0050EC93 /* e_conomic_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C351EC1B872A8A0050EC93 /* e_conomic_demoTests.m */; };
 		05C351FD1B8733150050EC93 /* e-conomic-model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05C351FB1B8733150050EC93 /* e-conomic-model.xcdatamodeld */; };
 		05C352051B87366B0050EC93 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C352031B87366B0050EC93 /* Constants.m */; };
-		05C3523E1B8741A60050EC93 /* TDProjectGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C3523D1B8741A60050EC93 /* TDProjectGenerator.m */; };
 		05C352851B875C540050EC93 /* TDNewProjectModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C352841B875C540050EC93 /* TDNewProjectModalViewController.m */; };
 		05C352881B8763960050EC93 /* TDCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C352871B8763960050EC93 /* TDCoreDataManager.m */; };
 		05C3528C1B8768B10050EC93 /* NSString+StringValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C3528B1B8768B10050EC93 /* NSString+StringValidation.m */; };
@@ -81,8 +80,6 @@
 		05C351FE1B87337E0050EC93 /* e-conomic-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "e-conomic-PrefixHeader.pch"; sourceTree = "<group>"; };
 		05C352031B87366B0050EC93 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		05C352041B87366B0050EC93 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		05C3523C1B8741A60050EC93 /* TDProjectGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDProjectGenerator.h; sourceTree = "<group>"; };
-		05C3523D1B8741A60050EC93 /* TDProjectGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDProjectGenerator.m; sourceTree = "<group>"; };
 		05C352831B875C540050EC93 /* TDNewProjectModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDNewProjectModalViewController.h; sourceTree = "<group>"; };
 		05C352841B875C540050EC93 /* TDNewProjectModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDNewProjectModalViewController.m; sourceTree = "<group>"; };
 		05C352861B8763960050EC93 /* TDCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCoreDataManager.h; sourceTree = "<group>"; };
@@ -291,20 +288,10 @@
 				05157C7F1B8B25C400A6714F /* NSDate Compare Category */,
 				05157C781B8B231500A6714F /* Time Interval Validator */,
 				05C352891B8768790050EC93 /* Validation Category */,
-				05C3523B1B8741900050EC93 /* Project Generator */,
 				05C352031B87366B0050EC93 /* Constants.m */,
 				05C352041B87366B0050EC93 /* Constants.h */,
 			);
 			name = Utils;
-			sourceTree = "<group>";
-		};
-		05C3523B1B8741900050EC93 /* Project Generator */ = {
-			isa = PBXGroup;
-			children = (
-				05C3523C1B8741A60050EC93 /* TDProjectGenerator.h */,
-				05C3523D1B8741A60050EC93 /* TDProjectGenerator.m */,
-			);
-			name = "Project Generator";
 			sourceTree = "<group>";
 		};
 		05C352471B8748AB0050EC93 /* Models */ = {
@@ -548,7 +535,6 @@
 				05C352851B875C540050EC93 /* TDNewProjectModalViewController.m in Sources */,
 				05157C651B8AFECF00A6714F /* TDProjectOverviewTableViewController.m in Sources */,
 				052695881B8A6D9200257B10 /* TDNewIntervalTableViewController.m in Sources */,
-				05C3523E1B8741A60050EC93 /* TDProjectGenerator.m in Sources */,
 				05C352881B8763960050EC93 /* TDCoreDataManager.m in Sources */,
 				05157C6F1B8B0FEB00A6714F /* TimeInterval.m in Sources */,
 				05D084A01B8C6E1000CD089E /* TDProjectSectionHeaderView.m in Sources */,
